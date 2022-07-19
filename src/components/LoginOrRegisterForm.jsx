@@ -75,7 +75,7 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
         </Box>
         <Box className={styles.loginContainer}>
           <Box className={styles.formContainer}>
-            <Typography variant="h3" sx={{color: '#1976D2'}}>Garlic's Movie List </Typography>
+            <Typography variant="h4" sx={{color: '#1976D2'}}>Garlic's Movie List </Typography>
             <img src={process.env.PUBLIC_URL + '/images/login.png'} width="130" height="130"alt="signinLogo" />
             <Typography variant="h5">Login/Register</Typography> 
             
