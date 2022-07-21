@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -22,10 +21,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element= {<App/> } />
-        <Route path='detail' element= {
+        <Route path='movies/:id' element= {
           <ProtectedComponent>
             <DetailPage/>
-          </ProtectedComponent>} />
+          </ProtectedComponent>
+        } 
+          />
         <Route path='login' element={
           <ProtectedComponentLogged site={'/'}>
             <LoginPage/>

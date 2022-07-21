@@ -7,7 +7,6 @@ import {
   CardContent,
   Rating,
   Typography,
-  Button,
 } from '@mui/material'
 
 //The Movie DataBase (TMDB)
@@ -16,9 +15,9 @@ const urlDepanPosterpath= "https://image.tmdb.org/t/p/w200";
 const CardMovie =({propsMovie})=> {
   return (
     <>
-      <Card className="boxy">
+      <Card className="boxy" sx={{maxWidth: '1000px', margin: 'auto'}}>
         <Box>
-          {/* <Typography variant="h6">Component CardMovie</Typography> */}
+          <Typography variant="h4" sx={{textAlign: 'center', fontWeight: 'bold'}}>Detail Movie</Typography>
         </Box>
         <Box className="boxy" sx={{display:"flex", flexDirection:"row", alignItems:"center", margin: '2em'}}>
             <CardMedia component="img"
@@ -28,10 +27,14 @@ const CardMovie =({propsMovie})=> {
             ></CardMedia>
             <CardContent>
               <Typography variant="body1">{propsMovie.title}</Typography>
-              <Box sx={{display: 'flex' , flexDirection: 'inline', marginBottom: '1em', textAlign: 'center'}}>
-                <Button variant='contained' sx={{marginRight: '1em'}} size='small' >Detail</Button>
-                <Rating value={propsMovie.vote_average/2} precision={0.1}/>
+              <Box sx={{display: 'flex' , flexDirection: 'inline', textAlign: 'center'}}>
+              <Rating value={propsMovie.vote_average/2} precision={0.1}/>
               </Box>
+              <Typography variant="body1">Vote Count: {propsMovie.vote_count}</Typography>
+              <Typography variant="body1">Popularity: {propsMovie.popularity}</Typography>
+              <Typography variant="body1">Release Date: {propsMovie.release_date}</Typography>
+              <Typography variant="body1" style={{marginBottom: '2em'}}>Original Language: {propsMovie.original_language}</Typography>
+
               <Typography variant="body1">{propsMovie.overview}</Typography>
               
             </CardContent>

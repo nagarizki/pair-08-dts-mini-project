@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import { Box, Typography } from "@mui/material";
+import {Box, Typography } from "@mui/material";
 
 import styles from "./HomePage.module.css";
-
-import {auth} from "../authentication/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 import axios from "axios";
 import CardMovie from "./CardMovie";
@@ -13,7 +11,6 @@ import CardMovie from "./CardMovie";
 const HomePage = () => {
 
   const [movies, setMovies] = useState([])
-  const [user] = useAuthState(auth);
   
 
   useEffect(()=>{
@@ -30,10 +27,13 @@ const HomePage = () => {
 
   return (
     <>
+        <Box>
+          <Typography variant="h4" sx={{textAlign: 'center', fontWeight: 'bold', marginTop: '1em'}}>List Movie</Typography>
+        </Box>
       <Box className={styles.container}>
-        {/* <Typography variant="body1">Selamat Datang {user?.email} </Typography> */}
         {movies.map((movie)=>{
-                return <CardMovie key={movie.id} propsMovie={movie}/>;
+                return <Link to={`/movies/${movie.id}`} style={{textDecoration: 'none'}}><CardMovie key={movie.id} propsMovie={movie}/>
+                </Link>             
              })}
       </Box>
     </>
