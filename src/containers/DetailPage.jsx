@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import { Box} from "@mui/material";
 
-import styles from "./DetailPage.module.css";
 
 // import {auth} from "../authentication/firebase";
 // import { useAuthState } from "react-firebase-hooks/auth";
 
 import axios from "axios";
 
-import CardMovieDetail from "../containers/CardMovieDetail";
+import CardMovieDetail from "./CardMovieDetail";
 
 import {useParams} from "react-router-dom";
 
@@ -40,7 +39,11 @@ const DetailPage = () => {
   console.log(movie.title);
   return (
     <>
-      <Box className={styles.container}>
+      <Box styles={{
+        padding: '1em',
+        margin: '1em 0em',
+        border: '1px dashed grey',
+      }}>
       <CardMovieDetail key={movie.id} propsMovie={movie}/>
       </Box>
     </>

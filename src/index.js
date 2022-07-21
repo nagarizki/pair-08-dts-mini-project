@@ -11,7 +11,7 @@ import RegisterPage from './containers/RegisterPage.jsx';
 
 import ProtectedComponent from './components/ProtectedComponent';
 import ProtectedComponentLogged from './components/ProtectedComponentLogged';
-import DetailPage from './components/DetailPage';
+import DetailPage from './containers/DetailPage';
 
 
 
