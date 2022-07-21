@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -9,8 +8,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './containers/LoginPage.jsx';
 import RegisterPage from './containers/RegisterPage.jsx';
 
+
 import ProtectedComponent from './components/ProtectedComponent';
 import ProtectedComponentLogged from './components/ProtectedComponentLogged';
+import DetailPage from './containers/DetailPage';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,16 +20,20 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element= {
+        <Route path='*' element= {<App/> } />
+        <Route path='movies/:id' element= {
           <ProtectedComponent>
-            <App/>
-          </ProtectedComponent>} />
+            <DetailPage/>
+          </ProtectedComponent>
+        } 
+          />
         <Route path='login' element={
           <ProtectedComponentLogged site={'/'}>
             <LoginPage/>
           </ProtectedComponentLogged>
         } />
         <Route path='register' element={<RegisterPage/>} />
+        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
